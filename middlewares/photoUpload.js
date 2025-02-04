@@ -4,7 +4,9 @@ const multer = require("multer")
 // Photo storage
 const photoStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, "../images"));
+        // cb(null, path.join(__dirname, "../images"));
+        cb(null, "/tmp/"); // Save files temporarily in /tmp/
+
     },
     filename: function (req, file, cb) {
         if (file) {

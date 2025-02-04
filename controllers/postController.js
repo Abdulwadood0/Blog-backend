@@ -28,7 +28,8 @@ module.exports.createPostCtrl = asyncHandler(async (req, res) => {
 
 
     // Upload photo
-    const imagePath = path.join(__dirname, `../images/${req.file.filename}`)
+    // const imagePath = path.join(__dirname, `../images/${req.file.filename}`)
+    const imagePath = path.join("/tmp/", req.file.filename);
     const result = await cloudinaryUploadImage(imagePath)
 
 
