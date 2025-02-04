@@ -1,0 +1,19 @@
+# Node.js dependencies
+node_modules
+npm-debug.log
+package-lock.json
+
+# Logs
+logs
+*.log
+
+# Environment variables
+.env
+
+# Database files
+*.sqlite
+*.db
+
+# Editor/IDE settings
+.vscode
+.idea
