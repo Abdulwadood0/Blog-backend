@@ -42,7 +42,7 @@ module.exports.sendResetPasswordLinkCtrl = asyncHandler(async (req, res) => {
 
 
     //create link
-    const link = `http://localhost:3000/reset-password/${user._id}/${verificationToken.token}`;
+    const link = `https://blog-backend-c1ma.onrender.com/reset-password/${user._id}/${verificationToken.token}`;
 
 
     // create html template 
