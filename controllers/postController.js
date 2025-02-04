@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler")
 const { Post, validateCreatePost, validateUpdatePost } = require("../models/Post")
 const { cloudinaryUploadImage, cloudinaryRemoveImage } = require("../utils/cloudinary")
 const { Comment } = require("../models/comment")
-
+const streamifier = require("streamifier")
 /**------------------------------------------
  * @desc     Create new Post
  * @route    /api/posts
@@ -28,8 +28,24 @@ module.exports.createPostCtrl = asyncHandler(async (req, res) => {
 
 
     //Upload photo
-    const imagePath = path.join(__dirname, `../images/${req.file.filename}`)
-    const result = await cloudinaryUploadImage(imagePath)
+    // const imagePath = path.join(__dirname, `../images/${req.file.filename}`)
+    // const result = await cloudinaryUploadImage(imagePath)
+
+    const cloudinaryUploadBuffer = (buffer) => {
+        return new Promise((resolve, reject) => {
+            let stream = cloudinary.uploader.upload_stream(
+                { resource_type: "auto" },
+                (error, result) => {
+                    if (error) reject(error);
+                    else resolve(result);
+                }
+            );
+            streamifier.createReadStream(buffer).pipe(stream);
+        });
+    };
+    const result = await cloudinaryUploadBuffer(req.file.buffer);
+
+
 
 
     // Create new post and save it to DB
