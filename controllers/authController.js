@@ -53,7 +53,7 @@ module.exports.registerUserController = asyncHandler(async (req, res) => {
 
 
     //create Like
-    const link = `https://blog-backend-c1ma.onrender.com/users/${user._id}/verify/${verificationToken.token}`
+    const link = `https://blog-frontend-sandy-beta.vercel.app/users/${user._id}/verify/${verificationToken.token}`
 
 
 
@@ -140,7 +140,7 @@ module.exports.loginUserController = asyncHandler(async (req, res) => {
         }
 
         //create Like
-        const link = `https://blog-backend-c1ma.onrender.com/users/${user._id}/verify/${verificationToken.token}`
+        const link = `https://blog-frontend-sandy-beta.vercel.app/users/${user._id}/verify/${verificationToken.token}`
 
 
 
