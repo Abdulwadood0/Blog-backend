@@ -205,7 +205,6 @@ module.exports.UpdatPostCtrl = asyncHandler(async (req, res) => {
 
     // Save updated post to DB
     await post.save();
-    console.log(post)
     res.status(200).json(post);
 })
 

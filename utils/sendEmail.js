@@ -19,7 +19,6 @@ module.exports = async (userEmail, subject, htmlTemplate) => {
         }
 
         const info = await transporter.sendMail(mailOptions);
-        console.log(info.response);
 
 
     } catch (error) {
