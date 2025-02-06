@@ -12,7 +12,7 @@ module.exports = async (userEmail, subject, htmlTemplate) => {
         })
 
         const mailOptions = {
-            from: process.env.EMAIL_ADDRESS, // sender
+            from: `"Blog App" <${process.env.EMAIL_ADDRESS}>`, // sender
             to: userEmail, // receiver
             subject: subject,
             html: htmlTemplate
