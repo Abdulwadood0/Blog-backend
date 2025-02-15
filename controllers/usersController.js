@@ -107,7 +107,9 @@ module.exports.profilePhotoUploadCtrl = asyncHandler(async (req, res) => {
     }
 
     //Get the path of the image
-    const imagePath = path.join(__dirname, `../images/${req.file.filename}`)
+    // const imagePath = path.join(__dirname, `../images/${req.file.filename}`)
+    const imagePath = path.join("/tmp/", req.file.filename);
+
 
 
     //upload to cloudinary
